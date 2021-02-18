@@ -1,0 +1,14 @@
+{
+  "name": "simple_express_app",
+  "version": "1.0.0",
+  "description": "simple express app",
+  "main": "index.js",
+  "author": "David Essien",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-express-app
+  labels:
+    app: simple-express-app
+spec:
+  selector:
+    matchLabels:
+      app: simple-express-app  
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: simple-express-app
+    spec:
+      containers:
+      - name: simple-express-app
+        image: davidshare/simple-express-app
+        ports:
+          - containerPort: 3000
