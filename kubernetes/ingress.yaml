@@ -1,24 +1,15 @@
-apiVersion: networking.k8s.io/v1
 kind: Ingress
+apiVersion: extensions/v1beta1
 metadata:
   name: simple-express-app
   annotations:
+    kubernetes.io/ingress.class: 'nginx'
 spec:
   rules:
-  - host: "simple-express-app.com"
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: simple-express-app
-            port:
-              number: 80
-      - path: /app2
-        pathType: Prefix
-        backend:
-          service:
-            name: simple-express-app2
-            port:
-              number: 80
+    - host: simple-express-app.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: simple-express-app
+              servicePort: 80
